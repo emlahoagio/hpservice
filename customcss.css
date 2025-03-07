@@ -1,63 +1,99 @@
-/* CSS cho overlay (màn nền mờ) */
+/* --- Ẩn popup mặc định --- */
 .overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    /* Nền tối hơn */
+    /* Nền tối hơn */
+    display: flex;
     align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
 }
 
-/* CSS cho nội dung popup */
+/* --- Hiển thị popup khi có class .show --- */
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- Hộp nội dung của popup --- */
 .popup {
+    width: 100vw;
+    height: 100vh;
     background: white;
-    padding: 20px;
-    width: 300px;
     border-radius: 10px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Logo trong popup */
+/* Chỉnh popup trên laptop */
+@media (min-width: 768px) {
+    .popup {
+        width: 80vw;
+        /* Chiếm 80% chiều rộng màn hình */
+        height: 80vh;
+        /* Chiếm 80% chiều cao màn hình */
+        max-width: none;
+        max-height: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-logo {
+        width: 150px;
+        /* Điều chỉnh kích thước logo */
+        height: auto;
+    }
+}
+
+/* --- Logo trong popup --- */
 .popup-logo {
     width: 100px;
+    height: auto;
     margin-bottom: 10px;
 }
 
-/* Nút gọi điện */
+/* --- Tiêu đề --- */
+.popup h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* --- Nội dung --- */
+.popup p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* --- Nút gọi --- */
 .call-btn {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background: #007BFF;
+    background: #007bff;
     color: white;
+    padding: 15px 30px;
+    font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
 .call-btn:hover {
     background: #0056b3;
-}
-
-/* Khi màn hình >= 768px (laptop), popup lớn hơn */
-@media (min-width: 768px) {
-    .popup {
-        width: 500px;
-        padding: 30px;
-    }
-
-    .popup-logo {
-        width: 120px;
-        /* Logo lớn hơn */
-    }
-
-    .call-btn {
-        font-size: 18px;
-        padding: 12px 20px;
-    }
 }

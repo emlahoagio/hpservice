@@ -3,5 +3,5 @@ const popupOverlay = document.getElementById("popupOverlay");
 
 // Sau 2 giây, hiển thị popup
 setTimeout(function () {
-    popupOverlay.style.display = "flex";
-}, 1000);
+    popupOverlay.classList.add("show");
+}, 2000);
