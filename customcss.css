@@ -39,6 +39,13 @@
     position: relative;
 }
 
+.call-text {
+    text-decoration: none;
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #007bff;
+}
+
 /* Chỉnh popup trên laptop */
 @media (min-width: 768px) {
     .popup {
@@ -69,8 +76,8 @@
 }
 
 /* --- Tiêu đề --- */
-.popup h2 {
-    font-size: 24px;
+.popup h1 {
+    font-size: 32px;
     color: #333;
     margin-bottom: 10px;
 }
